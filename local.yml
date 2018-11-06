@@ -2,11 +2,12 @@
   become: true
   tasks:
     - name: Install emacs
-      apt: name=emacs
+      apt: 
+        name: emacs
     - name: Get updated files from git repository
       git:
-        repo=https://{{ githubusername | urlencode }}:{{ githubpassword | urlencode }}@github.com/ansibleHW.git
-      dest: /tmp
+        repo: https://{{ githubusername | urlencode }}:{{ githubpassword | urlencode }}@github.com/ansibleHW.git
+        dest: /tmp
   #vars_prompt:
   #  - name: "githubusername"
   #    prompt: "Enter your github username"
